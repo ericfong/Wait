@@ -1,0 +1,42 @@
+<html>
+<head>
+	<title>Test for afternext</title>
+</head>
+<body>
+	<script src="after.js"></script>
+	<script>
+	var out = '';
+
+	// first parallel group
+	after.append(function(){
+
+		setTimeout(after(function(){
+	  		out += '1<br/>';
+	  		setTimeout(after(function(){
+		  		out += '3<br/>';
+			}), Math.random()*100);
+	  		out += '2<br/>';
+		 
+			after.insert(function(){
+		  		out += '4<br/>';
+		  		after.next(null, 'result');
+			});
+		 
+		}), Math.random()*100);
+
+	});
+
+	after.append(function(){
+		console.log(arguments);
+  		out += '5<br/>';
+	}, function(err){
+		console.log(arguments);
+  		out += '6<br/>';
+		document.getElementById('output').innerHTML = out;
+	});
+	
+	</script>
+	<div id="output">
+	</div>
+</body>
+</html>
