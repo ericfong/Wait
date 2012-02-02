@@ -53,5 +53,5 @@ var after = (function(){
 		after.fork = fork;
 		return after;
 	};
-	return fork();
+	return fork;
 })();

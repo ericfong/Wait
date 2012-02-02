@@ -8,6 +8,7 @@
 	var out = '';
 
 	// first parallel group
+	after = after.fork();
 	after.append(function(){
 
 		setTimeout(after(function(){

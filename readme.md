@@ -1,6 +1,7 @@
 Use after like this:
 
 	// first parallel group
+    after = after.fork();
 	after.append(function(){
 
 		setTimeout(after(function(){
