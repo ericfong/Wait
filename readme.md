@@ -41,3 +41,19 @@ Check out test.js
     }, function() {
         console.log('All Done');
     });
+
+
+Will output:
+    
+    A
+    B
+    Async Loop 0
+    Async Loop 2
+    Async Loop 4
+    Async Loop 6
+    Async Loop 8
+    Another Async call
+    After All Async Calls
+    Finally .then() accept array of functions
+    All Done
+    
