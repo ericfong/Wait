@@ -1,42 +1,43 @@
-Use after like this:
+Check out test.js
 
-	// first parallel group
-    after = after.fork();
-	after.append(function(){
-
-		setTimeout(after(function(){
-	  		out += '1<br/>';
-	  		setTimeout(after(function(){
-		  		out += '3<br/>';
-			}), Math.random()*100);
-	  		out += '2<br/>';
-		 
-			after.insert(function(){
-		  		out += '4<br/>';
-		  		after.next(null, 'result');
-			});
-		 
-		}), Math.random()*100);
-
-	});
-
-	after.append(function(){
-		console.log(arguments);
-  		out += '5<br/>';
-	}, function(err){
-		console.log(arguments);
-  		out += '6<br/>';
-	});
-
-	/*
-	 Will print out 
-	 1
-	 2
-	 3
-	 4
-	 5
-	 6
-	 */
-	see index.html
-
-		
+    var Wait = require('./Wait.js');
+    
+    //first parallel group
+    var wait = new Wait();
+    
+    setTimeout(wait(function() {
+    
+        console.log('A');
+    
+        function loopAsyncCall(i, callback) {
+            setTimeout(function() {
+                console.log('Async Loop ' + i);
+                callback();
+            }, 100);
+        }
+    
+        for (var i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                loopAsyncCall(i, wait());
+            }
+        }
+    
+        // another async call
+        setTimeout(wait(function() {
+            console.log('Another Async call');
+        }), 100);
+    
+        console.log('B');
+    
+        // firstCall
+        wait.firstCall(function() {
+            console.log('After All Async Calls');
+        });
+    
+    }), 100);
+    
+    wait.then(function() {
+        console.log('Finally .then() accept array of functions');
+    }, function() {
+        console.log('All Done');
+    });
