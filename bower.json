@@ -1,0 +1,22 @@
+{
+  "name": "wait-async",
+  "main": "Wait.js",
+  "version": "1.0.1",
+  "homepage": "https://github.com/ericfong/wait-async",
+  "authors": [
+    "Eric Fong <ericff@gmail.com>"
+  ],
+  "description": "util to wait for async calls",
+  "keywords": [
+    "async",
+    "wait"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

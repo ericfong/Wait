@@ -1,6 +1,6 @@
 {
   "name": "wait-async",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "util to wait for async calls",
   "main": "Wait.js",
   "scripts": {
@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ericfong/Wait.git"
+    "url": "https://github.com/ericfong/wait-async.git"
   },
   "keywords": [
     "async",
     "wait"
   ],
   "author": "Eric Fong <ericff@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ericfong/Wait/issues"
+    "url": "https://github.com/ericfong/wait-async/issues"
   },
-  "homepage": "https://github.com/ericfong/Wait"
+  "homepage": "https://github.com/ericfong/wait-async"
 }
